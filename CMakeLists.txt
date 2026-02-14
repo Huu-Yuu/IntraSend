@@ -11,27 +11,23 @@ qt_standard_project_setup()
 qt_add_executable(IntraSend
     WIN32 MACOSX_BUNDLE
     main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
+    widget.h
+    widget.cpp
+    widget.ui
+    mymessagebox.h
+    mymessagebox.cpp
+    mymessagebox.ui
+    appinit.h
+    appinit.cpp
 )
 
-# 链接 QWindowKit（根据【链接内容】中的示例）
+qt_add_resources(IntraSend "qss"
+    PREFIX "/"
+    FILES
+        qss.qrc
+)
+
 target_link_libraries(IntraSend PRIVATE
     Qt::Core
     Qt::Widgets
 )
-
-install(TARGETS IntraSend
-    BUNDLE  DESTINATION .
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-)
-
-qt_generate_deploy_app_script(
-    TARGET IntraSend
-    OUTPUT_SCRIPT deploy_script
-    NO_UNSUPPORTED_PLATFORM_ERROR
-)
-install(SCRIPT ${deploy_script})
-

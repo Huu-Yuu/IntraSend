@@ -1,5 +1,0 @@
-[project]
-name = "IntraSend"
-
-[tool.pyside6-project]
-files = ["widget.py", "form.ui"]
