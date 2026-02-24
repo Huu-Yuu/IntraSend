@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>局域网通讯工具</string>
+  </property>
+  <!-- 核心中央窗口 -->
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <!-- 左侧联系人列表 -->
+    <item>
+     <widget class="QListWidget" name="contactListWidget">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>0</height>
+       </size>
+      </property>
+     </widget>
+    </item>
+    <!-- 右侧聊天区域 -->
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <!-- 联系人标题 -->
+      <item>
+       <widget class="QLabel" name="lblCurrentContact">
+        <property name="text">
+         <string>未选择联系人</string>
+        </property>
+       </widget>
+      </item>
+      <!-- 聊天显示区域 -->
+      <item>
+       <widget class="QTextEdit" name="messageDisplayWidget">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <!-- 消息输入+发送按钮 -->
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QTextEdit" name="txtMessage"/>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnSend">
+          <property name="text">
+           <string>发送</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <!-- 简化菜单栏（完全符合Qt原生格式） -->
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <!-- 文件菜单 -->
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="actionSettings"/>
+    <addaction name="actionUserRadar"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <!-- 状态菜单 -->
+   <widget class="QMenu" name="menuStatus">
+    <property name="title">
+     <string>状态</string>
+    </property>
+    <addaction name="actionOnline"/>
+    <addaction name="actionDoNotDisturb"/>
+    <addaction name="actionInvisible"/>
+   </widget>
+   <!-- 菜单关联 -->
+   <addaction name="menuFile"/>
+   <addaction name="menuStatus"/>
+  </widget>
+  <!-- 状态栏 -->
+  <widget class="QStatusBar" name="statusbar"/>
+  <!-- 动作定义（极简版） -->
+  <action name="actionSettings">
+   <property name="text">
+    <string>设置</string>
+   </property>
+  </action>
+  <action name="actionUserRadar">
+   <property name="text">
+    <string>用户雷达</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>退出</string>
+   </property>
+  </action>
+  <action name="actionOnline">
+   <property name="text">
+    <string>在线</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionDoNotDisturb">
+   <property name="text">
+    <string>勿扰</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionInvisible">
+   <property name="text">
+    <string>隐身</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+  </action>
+ </widget>
+ <!-- 无资源文件 -->
+ <resources/>
+ <!-- 核心信号槽 -->
+ <connections>
+  <connection>
+   <sender>btnSend</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>on_btnSend_clicked()</slot>
+  </connection>
+ </connections>
+</ui>

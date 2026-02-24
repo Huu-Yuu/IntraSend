@@ -1,5 +1,5 @@
-#include "widget.h"
-#include "appinit.h"
+#include "ui/widget.h"
+#include "ui/appinit.h"
 #include <QApplication>
 #include <QFile>
 #include <QFont>

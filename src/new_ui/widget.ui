@@ -130,19 +130,18 @@
                 <property name="font">
                  <font>
                   <pointsize>10</pointsize>
-                  <weight>75</weight>
                   <bold>true</bold>
                  </font>
                 </property>
                 <property name="text">
-                 <string>Peach</string>
+                 <string>内网文件传输</string>
                 </property>
                </widget>
               </item>
               <item>
                <spacer name="horizontalSpacer">
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -170,7 +169,7 @@
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="qss.qrc">
+                 <iconset resource="../../qss.qrc">
                   <normaloff>:/icons/setting.png</normaloff>:/icons/setting.png</iconset>
                 </property>
                 <property name="iconSize">
@@ -199,7 +198,7 @@
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="qss.qrc">
+                 <iconset resource="../../qss.qrc">
                   <normaloff>:/icons/mine.png</normaloff>:/icons/mine.png</iconset>
                 </property>
                 <property name="iconSize">
@@ -226,7 +225,6 @@
                  <property name="font">
                   <font>
                    <pointsize>9</pointsize>
-                   <weight>50</weight>
                    <bold>false</bold>
                   </font>
                  </property>
@@ -234,7 +232,7 @@
                   <string notr="true"/>
                  </property>
                  <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
+                  <enum>Qt::Orientation::Horizontal</enum>
                  </property>
                 </widget>
                </item>
@@ -277,14 +275,14 @@
                   </font>
                  </property>
                  <property name="text">
-                  <string>$ itemMess</string>
+                  <string>首页</string>
                  </property>
                 </widget>
                </item>
                <item>
                 <spacer name="horizontalSpacer_6">
                  <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
+                  <enum>Qt::Orientation::Horizontal</enum>
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
@@ -299,7 +297,6 @@
                  <property name="font">
                   <font>
                    <pointsize>10</pointsize>
-                   <weight>75</weight>
                    <bold>true</bold>
                   </font>
                  </property>
@@ -347,14 +344,14 @@
                   </font>
                  </property>
                  <property name="text">
-                  <string>$ itemMess</string>
+                  <string>传输任务</string>
                  </property>
                 </widget>
                </item>
                <item>
                 <spacer name="horizontalSpacer_7">
                  <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
+                  <enum>Qt::Orientation::Horizontal</enum>
                  </property>
                  <property name="sizeHint" stdset="0">
                   <size>
@@ -369,7 +366,6 @@
                  <property name="font">
                   <font>
                    <pointsize>10</pointsize>
-                   <weight>75</weight>
                    <bold>true</bold>
                   </font>
                  </property>
@@ -384,7 +380,7 @@
             <item>
              <spacer name="verticalSpacer_2">
               <property name="orientation">
-               <enum>Qt::Vertical</enum>
+               <enum>Qt::Orientation::Vertical</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
@@ -425,7 +421,6 @@
               </property>
               <property name="font">
                <font>
-                <weight>75</weight>
                 <bold>true</bold>
                </font>
               </property>
@@ -462,11 +457,11 @@
                  <string>Insurance</string>
                 </property>
                 <property name="icon">
-                 <iconset resource="qss.qrc">
+                 <iconset resource="../../qss.qrc">
                   <normaloff>:/icons/umbrella.png</normaloff>:/icons/umbrella.png</iconset>
                 </property>
                 <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonTextUnderIcon</enum>
+                 <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
                 </property>
                </widget>
               </item>
@@ -493,11 +488,11 @@
                  <string>Media</string>
                 </property>
                 <property name="icon">
-                 <iconset resource="qss.qrc">
+                 <iconset resource="../../qss.qrc">
                   <normaloff>:/icons/phone.png</normaloff>:/icons/phone.png</iconset>
                 </property>
                 <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonTextUnderIcon</enum>
+                 <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
                 </property>
                </widget>
               </item>
@@ -524,11 +519,11 @@
                  <string>Utility</string>
                 </property>
                 <property name="icon">
-                 <iconset resource="qss.qrc">
+                 <iconset resource="../../qss.qrc">
                   <normaloff>:/icons/modular.png</normaloff>:/icons/modular.png</iconset>
                 </property>
                 <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonTextUnderIcon</enum>
+                 <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
                 </property>
                </widget>
               </item>
@@ -555,11 +550,11 @@
                  <string>Payments</string>
                 </property>
                 <property name="icon">
-                 <iconset resource="qss.qrc">
+                 <iconset resource="../../qss.qrc">
                   <normaloff>:/icons/money.png</normaloff>:/icons/money.png</iconset>
                 </property>
                 <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonTextUnderIcon</enum>
+                 <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
                 </property>
                </widget>
               </item>
@@ -586,11 +581,11 @@
                  <string>Transfers</string>
                 </property>
                 <property name="icon">
-                 <iconset resource="qss.qrc">
+                 <iconset resource="../../qss.qrc">
                   <normaloff>:/icons/member.png</normaloff>:/icons/member.png</iconset>
                 </property>
                 <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonTextUnderIcon</enum>
+                 <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
                 </property>
                </widget>
               </item>
@@ -617,7 +612,7 @@
                  <string>Add Other</string>
                 </property>
                 <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonTextUnderIcon</enum>
+                 <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
                 </property>
                </widget>
               </item>
@@ -626,7 +621,7 @@
             <item>
              <spacer name="verticalSpacer">
               <property name="orientation">
-               <enum>Qt::Vertical</enum>
+               <enum>Qt::Orientation::Vertical</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
@@ -641,7 +636,7 @@
               <item>
                <spacer name="horizontalSpacer_4">
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -669,7 +664,7 @@
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="qss.qrc">
+                 <iconset resource="../../qss.qrc">
                   <normaloff>:/icons/mini.png</normaloff>:/icons/mini.png</iconset>
                 </property>
                </widget>
@@ -677,7 +672,7 @@
               <item>
                <spacer name="horizontalSpacer_2">
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -705,7 +700,7 @@
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="qss.qrc">
+                 <iconset resource="../../qss.qrc">
                   <normaloff>:/icons/home.png</normaloff>:/icons/home.png</iconset>
                 </property>
                </widget>
@@ -713,7 +708,7 @@
               <item>
                <spacer name="horizontalSpacer_3">
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -741,7 +736,7 @@
                  <string/>
                 </property>
                 <property name="icon">
-                 <iconset resource="qss.qrc">
+                 <iconset resource="../../qss.qrc">
                   <normaloff>:/icons/logout.png</normaloff>:/icons/logout.png</iconset>
                 </property>
                </widget>
@@ -749,7 +744,7 @@
               <item>
                <spacer name="horizontalSpacer_5">
                 <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
+                 <enum>Qt::Orientation::Horizontal</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
@@ -787,7 +782,7 @@
            <item>
             <spacer name="horizontalSpacer_8">
              <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+              <enum>Qt::Orientation::Horizontal</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -814,7 +809,6 @@
              <property name="font">
               <font>
                <pointsize>9</pointsize>
-               <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
@@ -840,7 +834,6 @@
              <property name="font">
               <font>
                <pointsize>9</pointsize>
-               <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
@@ -866,7 +859,6 @@
              <property name="font">
               <font>
                <pointsize>9</pointsize>
-               <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
@@ -892,7 +884,6 @@
              <property name="font">
               <font>
                <pointsize>9</pointsize>
-               <weight>75</weight>
                <bold>true</bold>
               </font>
              </property>
@@ -904,7 +895,7 @@
            <item>
             <spacer name="horizontalSpacer_9">
              <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+              <enum>Qt::Orientation::Horizontal</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>
@@ -928,18 +919,17 @@
                <property name="font">
                 <font>
                  <pointsize>20</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
                <property name="layoutDirection">
-                <enum>Qt::LeftToRight</enum>
+                <enum>Qt::LayoutDirection::LeftToRight</enum>
                </property>
                <property name="text">
                 <string>Dashboard</string>
                </property>
                <property name="alignment">
-                <set>Qt::AlignCenter</set>
+                <set>Qt::AlignmentFlag::AlignCenter</set>
                </property>
               </widget>
              </item>
@@ -952,18 +942,17 @@
                <property name="font">
                 <font>
                  <pointsize>20</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
                <property name="layoutDirection">
-                <enum>Qt::LeftToRight</enum>
+                <enum>Qt::LayoutDirection::LeftToRight</enum>
                </property>
                <property name="text">
                 <string>Expenses</string>
                </property>
                <property name="alignment">
-                <set>Qt::AlignCenter</set>
+                <set>Qt::AlignmentFlag::AlignCenter</set>
                </property>
               </widget>
              </item>
@@ -976,18 +965,17 @@
                <property name="font">
                 <font>
                  <pointsize>20</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
                <property name="layoutDirection">
-                <enum>Qt::LeftToRight</enum>
+                <enum>Qt::LayoutDirection::LeftToRight</enum>
                </property>
                <property name="text">
                 <string>History</string>
                </property>
                <property name="alignment">
-                <set>Qt::AlignCenter</set>
+                <set>Qt::AlignmentFlag::AlignCenter</set>
                </property>
               </widget>
              </item>
@@ -1000,18 +988,17 @@
                <property name="font">
                 <font>
                  <pointsize>20</pointsize>
-                 <weight>75</weight>
                  <bold>true</bold>
                 </font>
                </property>
                <property name="layoutDirection">
-                <enum>Qt::LeftToRight</enum>
+                <enum>Qt::LayoutDirection::LeftToRight</enum>
                </property>
                <property name="text">
                 <string>Actions</string>
                </property>
                <property name="alignment">
-                <set>Qt::AlignCenter</set>
+                <set>Qt::AlignmentFlag::AlignCenter</set>
                </property>
               </widget>
              </item>
@@ -1029,7 +1016,8 @@
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="qss.qrc"/>
+  <include location="../../qss.qrc"/>
+  <include location="../../qss.qrc"/>
  </resources>
  <connections/>
 </ui>
