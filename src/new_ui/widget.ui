@@ -1,1023 +1,733 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Widget</class>
- <widget class="QWidget" name="Widget">
+ <class>IntraSendWidget</class>
+ <widget class="QWidget" name="IntraSendWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1030</width>
-    <height>685</height>
+    <width>1200</width>
+    <height>800</height>
    </rect>
   </property>
-  <property name="minimumSize">
-   <size>
-    <width>1030</width>
-    <height>685</height>
-   </size>
-  </property>
   <property name="windowTitle">
-   <string>Widget</string>
+   <string>IntraSend - 内网文件直传工具</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
-   <property name="leftMargin">
-    <number>9</number>
+  <property name="styleSheet">
+   <string>
+QWidget {
+    background-color: #F8F9FA;
+    font-family: "Microsoft YaHei", Arial, sans-serif;
+    font-size: 14px;
+}
+#sidebarWidget {
+    background-color: #FFFFFF;
+    border-right: 1px solid #E9ECEF;
+    border-radius: 8px 0 0 8px;
+}
+.QFrame {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    border: 1px solid #E9ECEF;
+}
+QPushButton {
+    background-color: #FF9A8B;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+}
+QPushButton:hover {
+    background-color: #FF7F6E;
+}
+QPushButton:pressed {
+    background-color: #FF6B58;
+}
+QListWidget::item {
+    padding: 10px;
+    border-bottom: 1px solid #F1F3F5;
+}
+QListWidget::item:selected {
+    background-color: #FFF0EE;
+    color: #FF6B58;
+}
+#onlineLabel {
+    color: #28A745;
+}
+#dndLabel {
+    color: #FFC107;
+}
+#invisibleLabel {
+    color: #6C757D;
+}
+   </string>
+  </property>
+  <layout class="QHBoxLayout" name="mainHorizontalLayout">
+   <property name="spacing">
+    <number>0</number>
    </property>
-   <property name="topMargin">
-    <number>9</number>
+   <property name="contentsMargins">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <x>0</x>
+     <y>0</y>
+    </rect>
    </property>
-   <property name="rightMargin">
-    <number>9</number>
-   </property>
-   <property name="bottomMargin">
-    <number>9</number>
-   </property>
+   <!-- 左侧导航栏 -->
    <item>
-    <widget class="QWidget" name="w_bg" native="true">
-     <layout class="QHBoxLayout" name="lay_bg">
+    <widget class="QWidget" name="sidebarWidget">
+     <property name="minimumSize">
+      <size>
+       <width>280</width>
+       <height>0</height>
+      </size>
+     </property>
+     <layout class="QVBoxLayout" name="sidebarVerticalLayout">
       <property name="spacing">
-       <number>6</number>
+       <number>10</number>
       </property>
-      <property name="leftMargin">
-       <number>4</number>
+      <property name="contentsMargins">
+       <rect>
+        <x>15</x>
+        <y>15</y>
+        <x>15</x>
+        <y>15</y>
+       </rect>
       </property>
-      <property name="topMargin">
-       <number>4</number>
-      </property>
-      <property name="rightMargin">
-       <number>4</number>
-      </property>
-      <property name="bottomMargin">
-       <number>4</number>
-      </property>
+      <!-- 顶部Logo和用户信息 -->
       <item>
-       <widget class="QWidget" name="w_menu" native="true">
-        <property name="minimumSize">
-         <size>
-          <width>200</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>252</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,1">
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <property name="leftMargin">
-          <number>14</number>
-         </property>
-         <property name="topMargin">
-          <number>12</number>
-         </property>
-         <property name="rightMargin">
-          <number>14</number>
-         </property>
-         <property name="bottomMargin">
-          <number>12</number>
-         </property>
+       <widget class="QFrame" name="userInfoFrame">
+        <layout class="QVBoxLayout" name="userInfoLayout">
          <item>
-          <widget class="QWidget" name="widget_2" native="true">
-           <layout class="QVBoxLayout" name="verticalLayout_4">
-            <property name="spacing">
-             <number>8</number>
-            </property>
-            <property name="leftMargin">
-             <number>0</number>
-            </property>
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="rightMargin">
-             <number>0</number>
-            </property>
-            <property name="bottomMargin">
-             <number>0</number>
-            </property>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout">
-              <property name="spacing">
-               <number>9</number>
-              </property>
-              <item>
-               <widget class="QLabel" name="lab_logo">
-                <property name="minimumSize">
-                 <size>
-                  <width>30</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>30</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="scaledContents">
-                 <bool>false</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label">
-                <property name="font">
-                 <font>
-                  <pointsize>10</pointsize>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>内网文件传输</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer">
-                <property name="orientation">
-                 <enum>Qt::Orientation::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btn_setting">
-                <property name="minimumSize">
-                 <size>
-                  <width>30</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>30</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../qss.qrc">
-                  <normaloff>:/icons/setting.png</normaloff>:/icons/setting.png</iconset>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>20</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btn_mine">
-                <property name="minimumSize">
-                 <size>
-                  <width>30</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>30</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../qss.qrc">
-                  <normaloff>:/icons/mine.png</normaloff>:/icons/mine.png</iconset>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>20</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <widget class="QWidget" name="widget_3" native="true">
-              <layout class="QVBoxLayout" name="verticalLayout_6">
-               <property name="leftMargin">
-                <number>10</number>
-               </property>
-               <property name="rightMargin">
-                <number>10</number>
-               </property>
-               <item>
-                <widget class="Line" name="line">
-                 <property name="font">
-                  <font>
-                   <pointsize>9</pointsize>
-                   <bold>false</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true"/>
-                 </property>
-                 <property name="orientation">
-                  <enum>Qt::Orientation::Horizontal</enum>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item>
-             <widget class="QWidget" name="w_item_01" native="true">
-              <layout class="QHBoxLayout" name="horizontalLayout_3">
-               <property name="spacing">
-                <number>10</number>
-               </property>
-               <property name="topMargin">
-                <number>0</number>
-               </property>
-               <item>
-                <widget class="QLabel" name="lab_item_01">
-                 <property name="minimumSize">
-                  <size>
-                   <width>40</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>40</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_2">
-                 <property name="font">
-                  <font>
-                   <pointsize>9</pointsize>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>首页</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_6">
-                 <property name="orientation">
-                  <enum>Qt::Orientation::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>41</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QLabel" name="lab_item_value_01">
-                 <property name="font">
-                  <font>
-                   <pointsize>10</pointsize>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>2001</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item>
-             <widget class="QWidget" name="w_item_02" native="true">
-              <layout class="QHBoxLayout" name="horizontalLayout_4">
-               <property name="spacing">
-                <number>10</number>
-               </property>
-               <property name="topMargin">
-                <number>9</number>
-               </property>
-               <item>
-                <widget class="QLabel" name="lab_item_02">
-                 <property name="minimumSize">
-                  <size>
-                   <width>40</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>40</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                 <property name="text">
-                  <string/>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_3">
-                 <property name="font">
-                  <font>
-                   <pointsize>9</pointsize>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>传输任务</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_7">
-                 <property name="orientation">
-                  <enum>Qt::Orientation::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QLabel" name="lab_item_value_02">
-                 <property name="font">
-                  <font>
-                   <pointsize>10</pointsize>
-                   <bold>true</bold>
-                  </font>
-                 </property>
-                 <property name="text">
-                  <string>19999</string>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-            </item>
-            <item>
-             <spacer name="verticalSpacer_2">
-              <property name="orientation">
-               <enum>Qt::Orientation::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-           </layout>
+          <widget class="QLabel" name="appLogoLabel">
+           <property name="text">
+            <string>IntraSend</string>
+           </property>
+           <property name="styleSheet">
+            <string>font-size: 20px; font-weight: bold; color: #FF6B58;</string>
+           </property>
           </widget>
          </item>
          <item>
-          <widget class="QWidget" name="widget" native="true">
-           <layout class="QVBoxLayout" name="verticalLayout_3">
-            <property name="spacing">
-             <number>8</number>
-            </property>
-            <property name="leftMargin">
-             <number>0</number>
-            </property>
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="rightMargin">
-             <number>0</number>
-            </property>
-            <property name="bottomMargin">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="lab_title">
-              <property name="minimumSize">
-               <size>
-                <width>0</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="font">
-               <font>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>Services</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <layout class="QGridLayout" name="gridLayout">
-              <property name="spacing">
-               <number>3</number>
-              </property>
-              <item row="0" column="0">
-               <widget class="QToolButton" name="btn_menu_item_1">
-                <property name="minimumSize">
-                 <size>
-                  <width>70</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>70</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>7</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Insurance</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../qss.qrc">
-                  <normaloff>:/icons/umbrella.png</normaloff>:/icons/umbrella.png</iconset>
-                </property>
-                <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QToolButton" name="btn_menu_item_5">
-                <property name="minimumSize">
-                 <size>
-                  <width>70</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>70</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>7</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Media</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../qss.qrc">
-                  <normaloff>:/icons/phone.png</normaloff>:/icons/phone.png</iconset>
-                </property>
-                <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QToolButton" name="btn_menu_item_2">
-                <property name="minimumSize">
-                 <size>
-                  <width>70</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>70</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>7</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Utility</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../qss.qrc">
-                  <normaloff>:/icons/modular.png</normaloff>:/icons/modular.png</iconset>
-                </property>
-                <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="2">
-               <widget class="QToolButton" name="btn_menu_item_3">
-                <property name="minimumSize">
-                 <size>
-                  <width>70</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>70</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>7</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Payments</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../qss.qrc">
-                  <normaloff>:/icons/money.png</normaloff>:/icons/money.png</iconset>
-                </property>
-                <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QToolButton" name="btn_menu_item_4">
-                <property name="minimumSize">
-                 <size>
-                  <width>70</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>70</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>7</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Transfers</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../qss.qrc">
-                  <normaloff>:/icons/member.png</normaloff>:/icons/member.png</iconset>
-                </property>
-                <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="2">
-               <widget class="QToolButton" name="btn_menu_item_6">
-                <property name="minimumSize">
-                 <size>
-                  <width>70</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>70</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <pointsize>7</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Add Other</string>
-                </property>
-                <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonStyle::ToolButtonTextUnderIcon</enum>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <spacer name="verticalSpacer">
-              <property name="orientation">
-               <enum>Qt::Orientation::Vertical</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>20</width>
-                <height>40</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,0,2,0,2,0,1">
-              <item>
-               <spacer name="horizontalSpacer_4">
-                <property name="orientation">
-                 <enum>Qt::Orientation::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btn_littleshow">
-                <property name="minimumSize">
-                 <size>
-                  <width>35</width>
-                  <height>35</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>35</width>
-                  <height>35</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../qss.qrc">
-                  <normaloff>:/icons/mini.png</normaloff>:/icons/mini.png</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_2">
-                <property name="orientation">
-                 <enum>Qt::Orientation::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btn_home">
-                <property name="minimumSize">
-                 <size>
-                  <width>35</width>
-                  <height>35</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>35</width>
-                  <height>35</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../qss.qrc">
-                  <normaloff>:/icons/home.png</normaloff>:/icons/home.png</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_3">
-                <property name="orientation">
-                 <enum>Qt::Orientation::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btn_logout">
-                <property name="minimumSize">
-                 <size>
-                  <width>35</width>
-                  <height>35</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>35</width>
-                  <height>35</height>
-                 </size>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../qss.qrc">
-                  <normaloff>:/icons/logout.png</normaloff>:/icons/logout.png</iconset>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_5">
-                <property name="orientation">
-                 <enum>Qt::Orientation::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>40</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-             </layout>
-            </item>
-           </layout>
+          <widget class="QLabel" name="userNicknameLabel">
+           <property name="text">
+            <string>我的昵称</string>
+           </property>
+           <property name="styleSheet">
+            <string>font-size: 16px;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="userStatusLabel">
+           <property name="text">
+            <string>在线</string>
+           </property>
+           <property name="objectName">
+            <string>onlineLabel</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="userDeviceIdLabel">
+           <property name="text">
+            <string>设备ID: 1b9d6bcd...</string>
+           </property>
+           <property name="styleSheet">
+            <string>font-size: 12px; color: #6C757D;</string>
+           </property>
           </widget>
          </item>
         </layout>
        </widget>
       </item>
+      <!-- 状态切换按钮 -->
       <item>
-       <widget class="QWidget" name="w_main" native="true">
-        <layout class="QVBoxLayout" name="verticalLayout_5" stretch="1,7">
-         <property name="spacing">
-          <number>19</number>
-         </property>
-         <property name="topMargin">
-          <number>10</number>
-         </property>
-         <property name="bottomMargin">
-          <number>6</number>
-         </property>
+       <widget class="QFrame" name="statusFrame">
+        <layout class="QHBoxLayout" name="statusLayout">
          <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_5">
-           <property name="spacing">
-            <number>40</number>
+          <widget class="QPushButton" name="btnOnline">
+           <property name="text">
+            <string>在线</string>
            </property>
-           <item>
-            <spacer name="horizontalSpacer_8">
-             <property name="orientation">
-              <enum>Qt::Orientation::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QPushButton" name="btn_main_item_1">
-             <property name="minimumSize">
-              <size>
-               <width>100</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>100</width>
-               <height>30</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>9</pointsize>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="text">
-              <string>Dashboard</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="btn_main_item_2">
-             <property name="minimumSize">
-              <size>
-               <width>100</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>100</width>
-               <height>30</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>9</pointsize>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="text">
-              <string>Expenses</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="btn_main_item_3">
-             <property name="minimumSize">
-              <size>
-               <width>100</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>100</width>
-               <height>30</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>9</pointsize>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="text">
-              <string>History</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="btn_main_item_4">
-             <property name="minimumSize">
-              <size>
-               <width>100</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>100</width>
-               <height>30</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <pointsize>9</pointsize>
-               <bold>true</bold>
-              </font>
-             </property>
-             <property name="text">
-              <string>Actions</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="horizontalSpacer_9">
-             <property name="orientation">
-              <enum>Qt::Orientation::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
          </item>
          <item>
-          <widget class="QStackedWidget" name="sw_main">
-           <property name="currentIndex">
-            <number>0</number>
+          <widget class="QPushButton" name="btnDnd">
+           <property name="text">
+            <string>勿扰</string>
            </property>
-           <widget class="QWidget" name="page">
-            <layout class="QVBoxLayout" name="verticalLayout_7">
-             <item>
-              <widget class="QLabel" name="lab_mess_1">
-               <property name="font">
-                <font>
-                 <pointsize>20</pointsize>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="layoutDirection">
-                <enum>Qt::LayoutDirection::LeftToRight</enum>
-               </property>
-               <property name="text">
-                <string>Dashboard</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignmentFlag::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QWidget" name="page_2">
-            <layout class="QVBoxLayout" name="verticalLayout_8">
-             <item>
-              <widget class="QLabel" name="lab_mess_2">
-               <property name="font">
-                <font>
-                 <pointsize>20</pointsize>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="layoutDirection">
-                <enum>Qt::LayoutDirection::LeftToRight</enum>
-               </property>
-               <property name="text">
-                <string>Expenses</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignmentFlag::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QWidget" name="page_3">
-            <layout class="QVBoxLayout" name="verticalLayout_9">
-             <item>
-              <widget class="QLabel" name="lab_mess_3">
-               <property name="font">
-                <font>
-                 <pointsize>20</pointsize>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="layoutDirection">
-                <enum>Qt::LayoutDirection::LeftToRight</enum>
-               </property>
-               <property name="text">
-                <string>History</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignmentFlag::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-           <widget class="QWidget" name="page_4">
-            <layout class="QVBoxLayout" name="verticalLayout_10">
-             <item>
-              <widget class="QLabel" name="lab_mess_4">
-               <property name="font">
-                <font>
-                 <pointsize>20</pointsize>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="layoutDirection">
-                <enum>Qt::LayoutDirection::LeftToRight</enum>
-               </property>
-               <property name="text">
-                <string>Actions</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignmentFlag::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnInvisible">
+           <property name="text">
+            <string>隐身</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
         </layout>
        </widget>
+      </item>
+      <!-- 联系人列表 -->
+      <item>
+       <widget class="QFrame" name="contactFrame">
+        <layout class="QVBoxLayout" name="contactLayout">
+         <item>
+          <widget class="QLabel" name="contactTitleLabel">
+           <property name="text">
+            <string>局域网联系人 (5)</string>
+           </property>
+           <property name="styleSheet">
+            <string>font-weight: bold; margin-bottom: 5px;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QListWidget" name="contactListWidget">
+           <item>
+            <property name="text">
+             <string>张三 (在线) - 192.168.1.101</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>李四 (勿扰) - 192.168.1.102</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>王五 (隐身) - 192.168.1.103</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>赵六 (在线) - 192.168.1.104</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>钱七 (在线) - 192.168.1.105</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <!-- 功能入口 -->
+      <item>
+       <widget class="QFrame" name="functionFrame">
+        <layout class="QVBoxLayout" name="functionLayout">
+         <item>
+          <widget class="QLabel" name="functionTitleLabel">
+           <property name="text">
+            <string>功能入口</string>
+           </property>
+           <property name="styleSheet">
+            <string>font-weight: bold; margin-bottom: 5px;</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnUserRadar">
+           <property name="text">
+            <string>用户雷达 (扫描局域网)</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnFileTransfer">
+           <property name="text">
+            <string>文件传输记录</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnSettings">
+           <property name="text">
+            <string>系统设置</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnLockApp">
+           <property name="text">
+            <string>锁定程序</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <!-- 底部占位 -->
+      <item>
+       <spacer name="sidebarSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <!-- 右侧主内容区 -->
+   <item>
+    <widget class="QWidget" name="contentWidget">
+     <layout class="QVBoxLayout" name="contentVerticalLayout">
+      <property name="spacing">
+       <number>15</number>
+      </property>
+      <property name="contentsMargins">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <x>20</x>
+        <y>20</y>
+       </rect>
+      </property>
+      <!-- 顶部导航 -->
+      <item>
+       <widget class="QFrame" name="topNavFrame">
+        <layout class="QHBoxLayout" name="topNavLayout">
+         <item>
+          <widget class="QPushButton" name="btnDashboard">
+           <property name="text">
+            <string>首页概览</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnUsers">
+           <property name="text">
+            <string>用户雷达</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnHistory">
+           <property name="text">
+            <string>传输记录</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnActions">
+           <property name="text">
+            <string>快速操作</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="topNavSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="btnRefresh">
+           <property name="text">
+            <string>刷新</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <!-- 首页概览内容 -->
+      <item>
+       <widget class="QStackedWidget" name="contentStackedWidget">
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <!-- 首页概览页面 -->
+        <widget class="QWidget" name="dashboardPage">
+         <layout class="QVBoxLayout" name="dashboardLayout">
+          <!-- 统计卡片 -->
+          <item>
+           <widget class="QFrame" name="statFrame">
+            <layout class="QHBoxLayout" name="statLayout">
+             <item>
+              <widget class="QFrame" name="statCard1">
+               <layout class="QVBoxLayout" name="statCard1Layout">
+                <item>
+                 <widget class="QLabel" name="stat1Title">
+                  <property name="text">
+                   <string>今日发送文件</string>
+                  </property>
+                  <property name="styleSheet">
+                   <string>color: #6C757D;</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="stat1Value">
+                  <property name="text">
+                   <string>3 个 (12MB)</string>
+                  </property>
+                  <property name="styleSheet">
+                   <string>font-size: 24px; font-weight: bold; color: #FF6B58;</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="statCard2">
+               <layout class="QVBoxLayout" name="statCard2Layout">
+                <item>
+                 <widget class="QLabel" name="stat2Title">
+                  <property name="text">
+                   <string>今日接收文件</string>
+                  </property>
+                  <property name="styleSheet">
+                   <string>color: #6C757D;</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="stat2Value">
+                  <property name="text">
+                   <string>2 个 (8MB)</string>
+                  </property>
+                  <property name="styleSheet">
+                   <string>font-size: 24px; font-weight: bold; color: #FF6B58;</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QFrame" name="statCard3">
+               <layout class="QVBoxLayout" name="statCard3Layout">
+                <item>
+                 <widget class="QLabel" name="stat3Title">
+                  <property name="text">
+                   <string>在线设备数</string>
+                  </property>
+                  <property name="styleSheet">
+                   <string>color: #6C757D;</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="stat3Value">
+                  <property name="text">
+                   <string>5 台</string>
+                  </property>
+                  <property name="styleSheet">
+                   <string>font-size: 24px; font-weight: bold; color: #FF6B58;</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <!-- 最近传输记录 -->
+          <item>
+           <widget class="QFrame" name="transferFrame">
+            <layout class="QVBoxLayout" name="transferLayout">
+             <item>
+              <widget class="QLabel" name="transferTitleLabel">
+               <property name="text">
+                <string>最近文件传输</string>
+               </property>
+               <property name="styleSheet">
+                <string>font-weight: bold; font-size: 16px; margin-bottom: 10px;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTableWidget" name="transferTableWidget">
+               <property name="columnCount">
+                <number>5</number>
+               </property>
+               <property name="rowCount">
+                <number>3</number>
+               </property>
+               <!-- 移除易出错的list标签，表头可在Qt Designer中手动设置 -->
+               <item row="0" column="0">
+                <property name="text">
+                 <string>report.pdf</string>
+                </property>
+               </item>
+               <item row="0" column="1">
+                <property name="text">
+                 <string>1.2MB</string>
+                </property>
+               </item>
+               <item row="0" column="2">
+                <property name="text">
+                 <string>张三</string>
+                </property>
+               </item>
+               <item row="0" column="3">
+                <property name="text">
+                 <string>2026-02-24 14:30</string>
+                </property>
+               </item>
+               <item row="0" column="4">
+                <property name="text">
+                 <string>已完成</string>
+                </property>
+               </item>
+               <item row="1" column="0">
+                <property name="text">
+                 <string>image.png</string>
+                </property>
+               </item>
+               <item row="1" column="1">
+                <property name="text">
+                 <string>890KB</string>
+                </property>
+               </item>
+               <item row="1" column="2">
+                <property name="text">
+                 <string>李四</string>
+                </property>
+               </item>
+               <item row="1" column="3">
+                <property name="text">
+                 <string>2026-02-24 13:15</string>
+                </property>
+               </item>
+               <item row="1" column="4">
+                <property name="text">
+                 <string>已完成</string>
+                </property>
+               </item>
+               <item row="2" column="0">
+                <property name="text">
+                 <string>data.zip</string>
+                </property>
+               </item>
+               <item row="2" column="1">
+                <property name="text">
+                 <string>25MB</string>
+                </property>
+               </item>
+               <item row="2" column="2">
+                <property name="text">
+                 <string>王五</string>
+                </property>
+               </item>
+               <item row="2" column="3">
+                <property name="text">
+                 <string>2026-02-24 15:20</string>
+                </property>
+               </item>
+               <item row="2" column="4">
+                <property name="text">
+                 <string>传输中</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <!-- 最近消息预览 -->
+          <item>
+           <widget class="QFrame" name="messageFrame">
+            <layout class="QVBoxLayout" name="messageLayout">
+             <item>
+              <widget class="QLabel" name="messageTitleLabel">
+               <property name="text">
+                <string>最近消息</string>
+               </property>
+               <property name="styleSheet">
+                <string>font-weight: bold; font-size: 16px; margin-bottom: 10px;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QListWidget" name="messageListWidget">
+               <item>
+                <property name="text">
+                 <string>李四: 你好，文件已收到。 (13:15)</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>张三: 麻烦发一下最新的报告。 (14:25)</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>赵六: 在线吗？需要传个文件。 (15:10)</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <!-- 其他页面占位 -->
+        <widget class="QWidget" name="usersPage">
+         <layout class="QVBoxLayout" name="usersLayout">
+          <item>
+           <widget class="QLabel" name="usersLabel">
+            <property name="text">
+             <string>用户雷达页面 - 待实现</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="historyPage">
+         <layout class="QVBoxLayout" name="historyLayout">
+          <item>
+           <widget class="QLabel" name="historyLabel">
+            <property name="text">
+             <string>传输记录页面 - 待实现</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="actionsPage">
+         <layout class="QVBoxLayout" name="actionsLayout">
+          <item>
+           <widget class="QLabel" name="actionsLabel">
+            <property name="text">
+             <string>快速操作页面 - 待实现</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+      <!-- 底部占位 -->
+      <item>
+       <spacer name="contentSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
       </item>
      </layout>
     </widget>
    </item>
   </layout>
  </widget>
- <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="../../qss.qrc"/>
-  <include location="../../qss.qrc"/>
- </resources>
- <connections/>
+ <resources/>
+ <connections>
+  <!-- 状态切换按钮互斥 -->
+  <connection>
+   <sender>btnOnline</sender>
+   <signal>clicked()</signal>
+   <receiver>btnDnd</receiver>
+   <slot>setChecked(false)</slot>
+  </connection>
+  <connection>
+   <sender>btnOnline</sender>
+   <signal>clicked()</signal>
+   <receiver>btnInvisible</receiver>
+   <slot>setChecked(false)</slot>
+  </connection>
+  <connection>
+   <sender>btnDnd</sender>
+   <signal>clicked()</signal>
+   <receiver>btnOnline</receiver>
+   <slot>setChecked(false)</slot>
+  </connection>
+  <connection>
+   <sender>btnDnd</sender>
+   <signal>clicked()</signal>
+   <receiver>btnInvisible</receiver>
+   <slot>setChecked(false)</slot>
+  </connection>
+  <connection>
+   <sender>btnInvisible</sender>
+   <signal>clicked()</signal>
+   <receiver>btnOnline</receiver>
+   <slot>setChecked(false)</slot>
+  </connection>
+  <connection>
+   <sender>btnInvisible</sender>
+   <signal>clicked()</signal>
+   <receiver>btnDnd</receiver>
+   <slot>setChecked(false)</slot>
+  </connection>
+  <!-- 顶部导航切换页面 -->
+  <connection>
+   <sender>btnDashboard</sender>
+   <signal>clicked()</signal>
+   <receiver>contentStackedWidget</receiver>
+   <slot>setCurrentIndex(0)</slot>
+  </connection>
+  <connection>
+   <sender>btnUsers</sender>
+   <signal>clicked()</signal>
+   <receiver>contentStackedWidget</receiver>
+   <slot>setCurrentIndex(1)</slot>
+  </connection>
+  <connection>
+   <sender>btnHistory</sender>
+   <signal>clicked()</signal>
+   <receiver>contentStackedWidget</receiver>
+   <slot>setCurrentIndex(2)</slot>
+  </connection>
+  <connection>
+   <sender>btnActions</sender>
+   <signal>clicked()</signal>
+   <receiver>contentStackedWidget</receiver>
+   <slot>setCurrentIndex(3)</slot>
+  </connection>
+ </connections>
 </ui>
