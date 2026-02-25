@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "settingsdialog.h"
+#include "settings_dialog.h"
 #include "user_radar_dialog.h"
 #include "file_transfer_dialog.h"
 #include <QDragEnterEvent>
@@ -93,8 +93,8 @@ void MainWindow::lockApp()
     isAppLocked = true;
 
     // 禁用所有界面元素
-    ui->centralWidget->setEnabled(false);
-    ui->menuBar->setEnabled(false);
+    ui->centralwidget->setEnabled(false);
+    ui->menubar->setEnabled(false);
 
     // 显示解锁对话框
     bool ok;
@@ -113,8 +113,8 @@ bool MainWindow::unlockApp(const QString &password)
 {
     if (passwordManager.verifyPassword(password)) {
         isAppLocked = false;
-        ui->centralWidget->setEnabled(true);
-        ui->menuBar->setEnabled(true);
+        ui->centralwidget->setEnabled(true);
+        ui->menubar->setEnabled(true);
         return true;
     } else {
         QMessageBox::warning(this, tr("密码错误"), tr("输入的密码不正确，请重试！"));
@@ -273,7 +273,10 @@ void MainWindow::onContactSelected(QUuid contactId)
 
     // 加载聊天历史
     QList<Message> history = messageManager.getMessageHistory(contactId);
-    ui->messageDisplayWidget->setMessages(history);
+    for(const auto& message : history)
+    {
+        ui->messageDisplayWidget->append(message.getContent());
+    }
 
     // 清除未读计数
     messageManager.markAsRead(contactId);
@@ -346,7 +349,7 @@ void MainWindow::onSendMessage()
 {
     if (isAppLocked || currentContactId.isNull()) return;
 
-    QString content = ui->messageInputWidget->getMessageText();
+    QString content = ui->messageDisplayWidget->toPlainText();
     if (content.isEmpty()) return;
 
     // 获取接收者状态
@@ -359,10 +362,10 @@ void MainWindow::onSendMessage()
 
     if (success) {
         // 清空输入框
-        ui->messageInputWidget->clear();
+        ui->messageDisplayWidget->clear();
 
         // 显示发送的消息
-        ui->messageDisplayWidget->addMessage(message, true);
+        ui->messageDisplayWidget->append(message.getContent());
     } else {
         QMessageBox::warning(this, tr("发送失败"), tr("对方处于勿扰模式，无法发送消息！"));
     }
@@ -379,7 +382,7 @@ void MainWindow::onMessageReceived(const Message &message)
 
     // 添加到消息显示
     if (message.getSenderId() == currentContactId) {
-        ui->messageDisplayWidget->addMessage(message, false);
+        ui->messageDisplayWidget->append(message.getContent());
     }
 
     // 更新联系人列表（显示未读）
@@ -490,9 +493,9 @@ void MainWindow::initUI()
     initTrayIcon();
 
     // 连接信号
-    connect(ui->messageInputWidget, &MessageInputWidget::sendMessage, this, &MainWindow::onSendMessage);
-    connect(ui->contactListWidget, &ContactListWidget::contactSelected, this, &MainWindow::onContactSelected);
-    connect(ui->contactListWidget, &ContactListWidget::contextMenuRequested, this, &MainWindow::onContactContextMenu);
+    // connect(ui->messageDisplayWidget, &MessageInputWidget::sendMessage, this, &MainWindow::onSendMessage);
+    // connect(ui->contactListWidget, &ContactListWidget::contactSelected, this, &MainWindow::onContactSelected);
+    // connect(ui->contactListWidget, &ContactListWidget::contextMenuRequested, this, &MainWindow::onContactContextMenu);
 
     // 消息管理器信号
     connect(&messageManager, &MessageManager::messageReceived, this, &MainWindow::onMessageReceived);
@@ -549,12 +552,15 @@ void MainWindow::updateContactList()
 {
     // 获取所有联系人
     QList<ContactInfo> contacts = contactManager.getAllContacts();
+    for(const auto& info : contacts)
+    {
+        // 更新联系人列表控件
+        ui->contactListWidget->addItem(info.nickname);
 
-    // 更新联系人列表控件
-    ui->contactListWidget->setContacts(contacts);
+    }
 
     // 更新未读计数显示
-    ui->contactListWidget->setUnreadCounts(messageManager.getUnreadMessageCount());
+    // ui->contactListWidget->setUnreadCounts(messageManager.getUnreadMessageCount());
 }
 
 void MainWindow::updateStatusBar(UserState state)

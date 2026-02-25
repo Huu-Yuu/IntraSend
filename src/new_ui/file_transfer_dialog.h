@@ -58,6 +58,8 @@ private:
 
     // 更新界面状态
     void updateUIState(FileTransferStatus status);
+
+    QString formatFileSize(qint64 bytes);
 };
 
 } // namespace LocalNetworkApp

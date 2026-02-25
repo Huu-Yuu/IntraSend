@@ -220,7 +220,7 @@ QByteArray SecurityManager::unpadData(const QByteArray &data)
         return data;
     }
 
-    int padding = static_cast<unsigned char>(data.last());
+    int padding = static_cast<unsigned char>(data.back());
     if (padding > data.size()) {
         return data;
     }

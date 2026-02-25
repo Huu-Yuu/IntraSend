@@ -9,6 +9,7 @@
 #include "message_protocol.h"
 #include "../user/user_status.h"
 #include "../user/userIdentity.h"
+#include "core/utils/constants.h"
 
 namespace LocalNetworkApp {
 

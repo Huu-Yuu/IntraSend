@@ -44,7 +44,7 @@ private:
     static QByteArray decryptAES(const QByteArray &data, const QByteArray &key, const QByteArray &iv);
 
     // 填充数据
-    static QByteArray padData(const QByteArray &data, int blockSize);
+    static QByteArray padData(const QByteArray &data, int blockSize = 16);
 
     // 移除填充
     static QByteArray unpadData(const QByteArray &data);

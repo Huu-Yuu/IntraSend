@@ -73,12 +73,12 @@ void SettingsDialog::on_btnAddPassword_clicked()
 
 void SettingsDialog::on_btnRemovePassword_clicked()
 {
-    QString password = ui->txtCurrentPassword->text();
+    QString password = ui->txtNewPassword->text();
 
     if (passwordManager.verifyPassword(password)) {
         if (passwordManager.removePassword(password)) {
             QMessageBox::information(this, tr("成功"), tr("密码已移除！"));
-            ui->txtCurrentPassword->clear();
+            ui->txtNewPassword->clear();
         } else {
             QMessageBox::warning(this, tr("失败"), tr("移除密码失败！"));
         }
@@ -89,7 +89,7 @@ void SettingsDialog::on_btnRemovePassword_clicked()
 
 void SettingsDialog::on_btnVerifyPassword_clicked()
 {
-    QString password = ui->txtCurrentPassword->text();
+    QString password = ui->txtNewPassword->text();
 
     if (passwordManager.verifyPassword(password)) {
         QMessageBox::information(this, tr("验证成功"), tr("密码正确！"));
@@ -123,18 +123,18 @@ void SettingsDialog::initUI()
     ui->txtDownloadPath->setText(downloadPath);
 
     // 设置密码强度检查
-    connect(ui->txtNewPassword, &QLineEdit::textChanged, this, [this](const QString &text) {
-        QString strength = SecurityManager::getPasswordStrength(text);
-        ui->lblPasswordStrength->setText(tr("密码强度：%1").arg(strength));
+    // connect(ui->txtNewPassword, &QLineEdit::textChanged, this, [this](const QString &text) {
+    //     QString strength = SecurityManager::getPasswordStrength(text);
+    //     ui->lblPasswordStrength->setText(tr("密码强度：%1").arg(strength));
 
-        if (strength == "强") {
-            ui->lblPasswordStrength->setStyleSheet("color: green;");
-        } else if (strength == "中") {
-            ui->lblPasswordStrength->setStyleSheet("color: orange;");
-        } else {
-            ui->lblPasswordStrength->setStyleSheet("color: red;");
-        }
-    });
+    //     if (strength == "强") {
+    //         ui->lblPasswordStrength->setStyleSheet("color: green;");
+    //     } else if (strength == "中") {
+    //         ui->lblPasswordStrength->setStyleSheet("color: orange;");
+    //     } else {
+    //         ui->lblPasswordStrength->setStyleSheet("color: red;");
+    //     }
+    // });
 }
 
 bool SettingsDialog::validateForm()

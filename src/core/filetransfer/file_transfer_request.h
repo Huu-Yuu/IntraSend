@@ -12,6 +12,7 @@ class FileTransferRequest {
 public:
     FileTransferRequest(QUuid senderId, QUuid receiverId, const QString &filePath);
     FileTransferRequest(const QJsonObject &json);
+    FileTransferRequest() = default;
     ~FileTransferRequest() = default;
 
     // 获取请求ID

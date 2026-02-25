@@ -205,7 +205,7 @@ void FileTransferDialog::updateUIState(FileTransferStatus status)
             break;
         case FileTransferStatus::Paused:
             statusText = tr("已暂停");
-            statusColor = Qt::orange;
+            statusColor = Qt::darkYellow;
             ui->btnPause->setText(tr("恢复"));
             break;
         case FileTransferStatus::Completed:

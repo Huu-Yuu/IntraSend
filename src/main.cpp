@@ -1,8 +1,8 @@
-#include "ui/widget.h"
-#include "ui/appinit.h"
 #include <QApplication>
 #include <QFile>
 #include <QFont>
+#include "new_ui/home.h"
+#include "new_ui/appinit.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -20,9 +20,9 @@ int main(int argc, char *argv[])
     a.setFont(font);
 
     //屏幕拖动
-    AppInit::Instance()->start();
+    // AppInit::Instance()->start();
 
-    Widget w;
+    Home w;
     w.show();
 
     return a.exec();

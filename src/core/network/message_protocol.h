@@ -22,6 +22,15 @@ public:
         QJsonObject content;
     };
 
+    // 消息头结构
+    struct MessageHeader {
+        quint32 magic;          // 魔术数字，用于标识消息
+        quint32 version;        // 协议版本
+        quint32 contentSize;    // 内容大小
+    };
+
+    static const quint32 MAGIC_NUMBER = 0x4C4E4150; // "LANP" 的ASCII码
+    static const quint32 PROTOCOL_VERSION = 1;
     // 序列化网络消息
     static QByteArray serializeMessage(const NetworkMessage &message);
 
@@ -50,15 +59,8 @@ public:
     static NetworkMessage createHeartbeatMessage(QUuid senderId);
 
 private:
-    // 消息头结构
-    struct MessageHeader {
-        quint32 magic;          // 魔术数字，用于标识消息
-        quint32 version;        // 协议版本
-        quint32 contentSize;    // 内容大小
-    };
 
-    static const quint32 MAGIC_NUMBER = 0x4C4E4150; // "LANP" 的ASCII码
-    static const quint32 PROTOCOL_VERSION = 1;
+
 };
 
 } // namespace LocalNetworkApp
