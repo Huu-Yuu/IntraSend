@@ -10,6 +10,7 @@ Home::Home(QWidget *parent)
 {
     ui->setupUi(this);
     InitUi();
+    InitMember();
 }
 
 Home::~Home()
@@ -20,7 +21,7 @@ Home::~Home()
 void Home::InitUi()
 {
     //初始化窗口边框
-    this->setAttribute(Qt::WA_TranslucentBackground, true);
+    // this->setAttribute(Qt::WA_TranslucentBackground, true);
     this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     QGraphicsDropShadowEffect *shadow = new QGraphicsDropShadowEffect(this);
     shadow->setOffset(0, 0);
@@ -29,28 +30,35 @@ void Home::InitUi()
     ui->w_bg->setGraphicsEffect(shadow);
     // ui->lay_bg->setContentsMargins(12,12,12,12);
     //Logo
-    QPixmap logo("D:/LocalSpace/Software/IntraSend/logo.png");
+    QSize size(30,30);
+    QPixmap logo(":/pic/icons/logo.png");
     ui->btn_logo->setIcon(logo);
     ui->btn_logo->setIconSize(QSize(30,30));
+    ui->btn_home->setIcon(fancy::IconPark::Home);
+    ui->btn_home->setIconSize(size);
+    ui->btn_logout->setIcon(fancy::IconPark::Close);
+    ui->btn_logout->setIconSize(size);
+    ui->btn_littleshow->setIcon(fancy::IconPark::Minus);
+    ui->btn_littleshow->setIconSize(size);
 }
 
 void Home::InitMember()
 {
 
     //最小化到托盘
-    QIcon icon = QIcon(":/icons/logo.png");//设置最小图标
+    QIcon icon = QIcon(":/icons/logo.ico");//设置最小图标
     trayIcon = new QSystemTrayIcon(this);
-    trayIcon->setIcon(icon);
-    trayIcon->setToolTip("Peach"); //提示文字
+    trayIcon->setIcon(QPixmap(":/pic/icons/logo.png"));
+    trayIcon->setToolTip("内网传书"); //提示文字
     //添加托盘列表项(还原与退出)
-    returnNormal = new QAction(" Show", this);
+    returnNormal = new QAction(" 显示界面", this);
     returnNormal->setFont(QFont("Arial", 9));
     returnNormal->setObjectName("returnNormal");
-    returnNormal->setIcon(QIcon(":/icons/show.png"));
-    quitAction = new QAction(" Quit", this);
+    returnNormal->setIcon(QIcon(":/pic/icons/show_win.png"));
+    quitAction = new QAction(" 程序退出", this);
     quitAction->setFont(QFont("Arial", 9));
     quitAction->setObjectName("quitAction");
-    quitAction->setIcon(QIcon(":/icons/out.png"));
+    quitAction->setIcon(QIcon(":/pic/icons/quit.png"));
     connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));           //绑定槽函数退出
     connect(returnNormal, SIGNAL(triggered()), this, SLOT(showNormal()));   //绑定槽函数还原界面
 

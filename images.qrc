@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/pic">
+        <file>icons/app.ico</file>
+        <file>icons/logo.png</file>
+        <file>icons/quit.png</file>
+        <file>icons/show_win.png</file>
+    </qresource>
+</RCC>
