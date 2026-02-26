@@ -20,15 +20,19 @@ Home::~Home()
 
 void Home::InitUi()
 {
+    resize(1000, 740);
     //初始化窗口边框
     // this->setAttribute(Qt::WA_TranslucentBackground, true);
     this->setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
-    QGraphicsDropShadowEffect *shadow = new QGraphicsDropShadowEffect(this);
-    shadow->setOffset(0, 0);
-    shadow->setColor(QColor("#444444"));
-    shadow->setBlurRadius(16);
-    ui->w_bg->setGraphicsEffect(shadow);
-    // ui->lay_bg->setContentsMargins(12,12,12,12);
+    installEventFilter(this);
+    setProperty("canMove",true);
+    // QGraphicsDropShadowEffect *shadow = new QGraphicsDropShadowEffect(this);
+    // shadow->setOffset(0, 0);
+    // shadow->setColor(QColor("#444444"));
+    // shadow->setBlurRadius(16);
+    // ui->w_bg->setGraphicsEffect(shadow);
+    ui->out_lay->setContentsMargins(22,22,22,22);
+    setLayout(ui->out_lay);
     //Logo
     QSize size(30,30);
     QPixmap logo(":/pic/icons/logo.png");
@@ -40,6 +44,8 @@ void Home::InitUi()
     ui->btn_logout->setIconSize(size);
     ui->btn_littleshow->setIcon(fancy::IconPark::Minus);
     ui->btn_littleshow->setIconSize(size);
+    ui->btn_mine->setIcon(fancy::IconPark::Panda);
+
 }
 
 void Home::InitMember()
@@ -76,16 +82,14 @@ void Home::LittleShow()
 
     //显示到系统提示框的信息
     QString title="内网传书";
-    QString text="正自动在后台运行";
+    QString text="自动在后台运行";
     trayIcon->showMessage(title,text,QSystemTrayIcon::Information,3000); //此参数为提示时长
 }
 
 void Home::on_btn_littleshow_clicked()
 {
-    // showMinimized();
     LittleShow();
 }
-
 
 void Home::on_btn_logout_clicked()
 {

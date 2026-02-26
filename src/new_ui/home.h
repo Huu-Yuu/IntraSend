@@ -3,7 +3,6 @@
 
 #include <QSystemTrayIcon>
 #include <QWidget>
-
 namespace Ui {
 class Home;
 }

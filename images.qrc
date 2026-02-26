@@ -4,5 +4,6 @@
         <file>icons/logo.png</file>
         <file>icons/quit.png</file>
         <file>icons/show_win.png</file>
+        <file>css/index.css</file>
     </qresource>
 </RCC>
