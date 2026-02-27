@@ -20,6 +20,18 @@ private slots:
 
     void on_btn_logout_clicked();
 
+    void on_btn_contact_clicked();
+
+    void on_btn_radar_clicked();
+
+    void on_btn_file_trans_clicked();
+
+    void on_btn_program_lock_clicked();
+
+    void on_btn_sys_config_clicked();
+
+    void on_btn_home_clicked();
+
 protected:
     bool eventFilter(QObject *obj, QEvent *evt) override;
 

@@ -196,35 +196,35 @@
           <item>
            <layout class="QVBoxLayout" name="verticalLayout">
             <item>
-             <widget class="fancy::TransparentButton" name="pushButton">
+             <widget class="fancy::TransparentButton" name="btn_contact">
               <property name="text">
                <string>联系人列表</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="fancy::TransparentButton" name="pushButton_2">
+             <widget class="fancy::TransparentButton" name="btn_radar">
               <property name="text">
                <string>用户雷达</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="fancy::TransparentButton" name="pushButton_3">
+             <widget class="fancy::TransparentButton" name="btn_file_trans">
               <property name="text">
                <string>文件传输</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="fancy::TransparentButton" name="pushButton_4">
+             <widget class="fancy::TransparentButton" name="btn_program_lock">
               <property name="text">
                <string>程序锁定</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="fancy::TransparentButton" name="pushButton_5">
+             <widget class="fancy::TransparentButton" name="btn_sys_config">
               <property name="text">
                <string>系统设置</string>
               </property>
@@ -380,7 +380,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QStackedWidget" name="sw_main">
+     <widget class="QStackedWidget" name="content_widget">
       <property name="currentIndex">
        <number>0</number>
       </property>
@@ -405,7 +405,7 @@
            <widget class="QFrame" name="statFrame">
             <layout class="QHBoxLayout" name="statLayout">
              <item>
-              <widget class="QFrame" name="statCard1">
+              <widget class="QFrame" name="cur_send_card">
                <layout class="QVBoxLayout" name="statCard1Layout">
                 <item>
                  <widget class="QLabel" name="stat1Title">
@@ -431,7 +431,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QFrame" name="statCard2">
+              <widget class="QFrame" name="cur_recv_card">
                <layout class="QVBoxLayout" name="statCard2Layout">
                 <item>
                  <widget class="QLabel" name="stat2Title">
@@ -457,7 +457,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QFrame" name="statCard3">
+              <widget class="QFrame" name="online_card">
                <layout class="QVBoxLayout" name="statCard3Layout">
                 <item>
                  <widget class="QLabel" name="stat3Title">
@@ -489,7 +489,7 @@
            <widget class="QFrame" name="statFrame_2">
             <layout class="QHBoxLayout" name="statLayout_3">
              <item>
-              <widget class="QFrame" name="statCard1_3">
+              <widget class="QFrame" name="his_send_card">
                <layout class="QVBoxLayout" name="statCard1Layout_3">
                 <item>
                  <widget class="QLabel" name="stat1Title_3">
@@ -515,7 +515,7 @@
               </widget>
              </item>
              <item>
-              <widget class="QFrame" name="statCard2_3">
+              <widget class="QFrame" name="his_recv_card">
                <layout class="QVBoxLayout" name="statCard2Layout_3">
                 <item>
                  <widget class="QLabel" name="stat2Title_3">
@@ -573,7 +573,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_2">
+      <widget class="QWidget" name="contact_page">
        <layout class="QVBoxLayout" name="verticalLayout_8">
         <item>
          <widget class="QLabel" name="lab_mess_2">
@@ -587,7 +587,7 @@
            <enum>Qt::LayoutDirection::LeftToRight</enum>
           </property>
           <property name="text">
-           <string>Expenses</string>
+           <string>联系人列表</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -596,7 +596,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_3">
+      <widget class="QWidget" name="radar_page">
        <layout class="QVBoxLayout" name="verticalLayout_9">
         <item>
          <widget class="QLabel" name="lab_mess_3">
@@ -610,7 +610,7 @@
            <enum>Qt::LayoutDirection::LeftToRight</enum>
           </property>
           <property name="text">
-           <string>History</string>
+           <string>用户雷达</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -619,7 +619,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="page_4">
+      <widget class="QWidget" name="file_trans_page">
        <layout class="QVBoxLayout" name="verticalLayout_10">
         <item>
          <widget class="QLabel" name="lab_mess_4">
@@ -633,7 +633,7 @@
            <enum>Qt::LayoutDirection::LeftToRight</enum>
           </property>
           <property name="text">
-           <string>Actions</string>
+           <string>文件传输</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -641,6 +641,60 @@
          </widget>
         </item>
        </layout>
+      </widget>
+      <widget class="QWidget" name="lock_page">
+       <widget class="QLabel" name="lab_mess_5">
+        <property name="geometry">
+         <rect>
+          <x>110</x>
+          <y>140</y>
+          <width>361</width>
+          <height>291</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>20</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LayoutDirection::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>程序锁定</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="sys_config_page">
+       <widget class="QLabel" name="lab_mess_6">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>130</y>
+          <width>361</width>
+          <height>291</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>20</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LayoutDirection::LeftToRight</enum>
+        </property>
+        <property name="text">
+         <string>系统设置</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
       </widget>
      </widget>
     </item>

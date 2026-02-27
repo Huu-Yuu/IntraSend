@@ -130,3 +130,38 @@ bool Home::eventFilter(QObject *obj, QEvent *evt)
     return QObject::eventFilter(obj, evt);
 }
 
+void Home::on_btn_contact_clicked()
+{
+    ui->content_widget->setCurrentWidget(ui->contact_page);
+}
+
+
+void Home::on_btn_radar_clicked()
+{
+    ui->content_widget->setCurrentWidget(ui->radar_page);
+}
+
+
+void Home::on_btn_file_trans_clicked()
+{
+    ui->content_widget->setCurrentWidget(ui->file_trans_page);
+}
+
+
+void Home::on_btn_program_lock_clicked()
+{
+    ui->content_widget->setCurrentWidget(ui->lock_page);
+}
+
+
+void Home::on_btn_sys_config_clicked()
+{
+    ui->content_widget->setCurrentWidget(ui->sys_config_page);
+}
+
+
+void Home::on_btn_home_clicked()
+{
+    ui->content_widget->setCurrentWidget(ui->home_page);
+}
+
