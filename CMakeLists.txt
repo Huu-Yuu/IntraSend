@@ -13,7 +13,7 @@ set(QFANCYUI_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 set(QFANCYUI_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/QWidget-FancyUI/Fancy)
 
 # 检查库文件是否存在
-if (EXISTS ${QFANCYUI_LIB_DIR}/libQFancyUId.a AND EXISTS ${QFANCYUI_LIB_DIR}/QFancyUId.dll)
+if (EXISTS ${QFANCYUI_LIB_DIR}/libQFancyUI.a AND EXISTS ${QFANCYUI_LIB_DIR}/QFancyUI.dll)
     message(STATUS "Found QFancyUI library files")
 else()
     message(FATAL_ERROR "QFancyUI library files not found in ${QFANCYUI_LIB_DIR}")
@@ -72,8 +72,8 @@ add_library(QFancyUI SHARED IMPORTED)
 
 # 设置导入库的属性
 set_target_properties(QFancyUI PROPERTIES
-    IMPORTED_LOCATION ${QFANCYUI_LIB_DIR}/QFancyUId.dll
-    IMPORTED_IMPLIB ${QFANCYUI_LIB_DIR}/libQFancyUId.a
+    IMPORTED_LOCATION ${QFANCYUI_LIB_DIR}/QFancyUI.dll
+    IMPORTED_IMPLIB ${QFANCYUI_LIB_DIR}/libQFancyUI.a
     INTERFACE_INCLUDE_DIRECTORIES ${QFANCYUI_INCLUDE_DIR}
 )
 
