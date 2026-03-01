@@ -82,7 +82,7 @@ if (WIN32)
     # 在构建后复制 DLL 到输出目录
     add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            "${QFANCYUI_LIB_DIR}/QFancyUId.dll"
+            "${QFANCYUI_LIB_DIR}/QFancyUI.dll"
             "$<TARGET_FILE_DIR:${PROJECT_NAME}>/"
         COMMENT "Copying QFancyUI DLL to output directory"
     )

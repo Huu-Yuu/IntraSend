@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Home</class>
- <widget class="QWidget" name="Home">
+ <class>main_widget</class>
+ <widget class="QWidget" name="main_widget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,535 +13,109 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QWidget" name="horizontalLayoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>751</width>
-     <height>571</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="out_lay" stretch="1,4">
-    <property name="spacing">
-     <number>17</number>
-    </property>
-    <property name="leftMargin">
-     <number>5</number>
-    </property>
-    <property name="topMargin">
-     <number>10</number>
-    </property>
-    <property name="rightMargin">
-     <number>5</number>
-    </property>
-    <property name="bottomMargin">
-     <number>10</number>
-    </property>
-    <item>
-     <widget class="fancy::MSWidget" name="base_menu" native="true">
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <property name="spacing">
-        <number>8</number>
-       </property>
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item>
-        <widget class="QWidget" name="widget_2" native="true">
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <property name="spacing">
-           <number>8</number>
-          </property>
-          <property name="leftMargin">
-           <number>0</number>
-          </property>
-          <property name="topMargin">
-           <number>0</number>
-          </property>
-          <property name="rightMargin">
-           <number>0</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout">
-            <property name="spacing">
-             <number>9</number>
-            </property>
-            <item>
-             <widget class="fancy::TransparentButton" name="btn_logo">
-              <property name="minimumSize">
-               <size>
-                <width>40</width>
-                <height>35</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>40</width>
-                <height>35</height>
-               </size>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="icon">
-               <iconset>
-                <normaloff>:/icons/logo.png</normaloff>:/icons/logo.png</iconset>
-              </property>
-              <property name="iconSize">
-               <size>
-                <width>40</width>
-                <height>34</height>
-               </size>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label">
-              <property name="font">
-               <font>
-                <pointsize>10</pointsize>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="text">
-               <string>内网传书</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer">
-              <property name="orientation">
-               <enum>Qt::Orientation::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <widget class="fancy::TransparentButton" name="btn_mine">
-              <property name="minimumSize">
-               <size>
-                <width>30</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="maximumSize">
-               <size>
-                <width>30</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="icon">
-               <iconset>
-                <normaloff>:/icons/mine.png</normaloff>:/icons/mine.png</iconset>
-              </property>
-              <property name="iconSize">
-               <size>
-                <width>20</width>
-                <height>20</height>
-               </size>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="QWidget" name="widget_3" native="true">
-            <layout class="QVBoxLayout" name="verticalLayout_6">
-             <property name="leftMargin">
-              <number>10</number>
-             </property>
-             <property name="rightMargin">
-              <number>10</number>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QHBoxLayout" name="out_lay" stretch="1,4">
+     <property name="spacing">
+      <number>17</number>
+     </property>
+     <property name="leftMargin">
+      <number>5</number>
+     </property>
+     <property name="topMargin">
+      <number>10</number>
+     </property>
+     <property name="rightMargin">
+      <number>5</number>
+     </property>
+     <property name="bottomMargin">
+      <number>10</number>
+     </property>
+     <item>
+      <widget class="fancy::MSWidget" name="base_menu" native="true">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <property name="spacing">
+         <number>8</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QWidget" name="widget_2" native="true">
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <property name="spacing">
+            <number>8</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <property name="spacing">
+              <number>9</number>
              </property>
              <item>
-              <widget class="Line" name="line">
+              <widget class="fancy::TransparentButton" name="btn_logo">
+               <property name="minimumSize">
+                <size>
+                 <width>40</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>40</width>
+                 <height>35</height>
+                </size>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>:/icons/logo.png</normaloff>:/icons/logo.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>40</width>
+                 <height>34</height>
+                </size>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="label">
                <property name="font">
                 <font>
-                 <pointsize>9</pointsize>
-                 <bold>false</bold>
+                 <pointsize>10</pointsize>
+                 <bold>true</bold>
                 </font>
                </property>
-               <property name="styleSheet">
-                <string notr="true"/>
-               </property>
-               <property name="orientation">
-                <enum>Qt::Orientation::Horizontal</enum>
+               <property name="text">
+                <string>内网传书</string>
                </property>
               </widget>
              </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout">
-            <item>
-             <widget class="fancy::TransparentButton" name="btn_contact">
-              <property name="text">
-               <string>联系人列表</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="fancy::TransparentButton" name="btn_radar">
-              <property name="text">
-               <string>用户雷达</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="fancy::TransparentButton" name="btn_file_trans">
-              <property name="text">
-               <string>文件传输</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="fancy::TransparentButton" name="btn_program_lock">
-              <property name="text">
-               <string>程序锁定</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="fancy::TransparentButton" name="btn_sys_config">
-              <property name="text">
-               <string>系统设置</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Orientation::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>20</width>
-           <height>40</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,0,2,0,2,0,1">
-         <property name="bottomMargin">
-          <number>5</number>
-         </property>
-         <item>
-          <spacer name="horizontalSpacer_4">
-           <property name="orientation">
-            <enum>Qt::Orientation::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="fancy::TransparentButton" name="btn_littleshow">
-           <property name="minimumSize">
-            <size>
-             <width>35</width>
-             <height>35</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>35</width>
-             <height>35</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>:/icons/mini.png</normaloff>:/icons/mini.png</iconset>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_2">
-           <property name="orientation">
-            <enum>Qt::Orientation::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="fancy::TransparentButton" name="btn_home">
-           <property name="minimumSize">
-            <size>
-             <width>35</width>
-             <height>35</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>35</width>
-             <height>35</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>:/icons/home.png</normaloff>:/icons/home.png</iconset>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_3">
-           <property name="orientation">
-            <enum>Qt::Orientation::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="fancy::TransparentButton" name="btn_logout">
-           <property name="minimumSize">
-            <size>
-             <width>35</width>
-             <height>35</height>
-            </size>
-           </property>
-           <property name="maximumSize">
-            <size>
-             <width>35</width>
-             <height>35</height>
-            </size>
-           </property>
-           <property name="text">
-            <string/>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>:/icons/logout.png</normaloff>:/icons/logout.png</iconset>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_5">
-           <property name="orientation">
-            <enum>Qt::Orientation::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QStackedWidget" name="content_widget">
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-      <widget class="fancy::MSWidget" name="home_page">
-       <layout class="QVBoxLayout" name="verticalLayout_7">
-        <item>
-         <spacer name="verticalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Orientation::Vertical</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>40</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_11">
-          <item>
-           <widget class="QFrame" name="statFrame">
-            <layout class="QHBoxLayout" name="statLayout">
              <item>
-              <widget class="QFrame" name="cur_send_card">
-               <layout class="QVBoxLayout" name="statCard1Layout">
-                <item>
-                 <widget class="QLabel" name="stat1Title">
-                  <property name="styleSheet">
-                   <string>color: #6C757D;</string>
-                  </property>
-                  <property name="text">
-                   <string>今日发送文件</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="stat1Value">
-                  <property name="styleSheet">
-                   <string>font-size: 24px; font-weight: bold; color: #FF6B58;</string>
-                  </property>
-                  <property name="text">
-                   <string>3 个 (12MB)</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <widget class="QFrame" name="cur_recv_card">
-               <layout class="QVBoxLayout" name="statCard2Layout">
-                <item>
-                 <widget class="QLabel" name="stat2Title">
-                  <property name="styleSheet">
-                   <string>color: #6C757D;</string>
-                  </property>
-                  <property name="text">
-                   <string>今日接收文件</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="stat2Value">
-                  <property name="styleSheet">
-                   <string>font-size: 24px; font-weight: bold; color: #FF6B58;</string>
-                  </property>
-                  <property name="text">
-                   <string>2 个 (8MB)</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <widget class="QFrame" name="online_card">
-               <layout class="QVBoxLayout" name="statCard3Layout">
-                <item>
-                 <widget class="QLabel" name="stat3Title">
-                  <property name="styleSheet">
-                   <string>color: #6C757D;</string>
-                  </property>
-                  <property name="text">
-                   <string>当前在线设备数</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="stat3Value">
-                  <property name="styleSheet">
-                   <string>font-size: 24px; font-weight: bold; color: #FF6B58;</string>
-                  </property>
-                  <property name="text">
-                   <string>5 台</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-            </layout>
-           </widget>
-          </item>
-          <item>
-           <widget class="QFrame" name="statFrame_2">
-            <layout class="QHBoxLayout" name="statLayout_3">
-             <item>
-              <widget class="QFrame" name="his_send_card">
-               <layout class="QVBoxLayout" name="statCard1Layout_3">
-                <item>
-                 <widget class="QLabel" name="stat1Title_3">
-                  <property name="styleSheet">
-                   <string>color: #6C757D;</string>
-                  </property>
-                  <property name="text">
-                   <string>历史发送文件</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="stat1Value_3">
-                  <property name="styleSheet">
-                   <string>font-size: 24px; font-weight: bold; color: #FF6B58;</string>
-                  </property>
-                  <property name="text">
-                   <string>30 个 (3112MB)</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <widget class="QFrame" name="his_recv_card">
-               <layout class="QVBoxLayout" name="statCard2Layout_3">
-                <item>
-                 <widget class="QLabel" name="stat2Title_3">
-                  <property name="styleSheet">
-                   <string>color: #6C757D;</string>
-                  </property>
-                  <property name="text">
-                   <string>历史接收文件</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="stat2Value_3">
-                  <property name="styleSheet">
-                   <string>font-size: 24px; font-weight: bold; color: #FF6B58;</string>
-                  </property>
-                  <property name="text">
-                   <string>20个 (128MB)</string>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_6">
+              <spacer name="horizontalSpacer">
                <property name="orientation">
                 <enum>Qt::Orientation::Horizontal</enum>
                </property>
@@ -553,13 +127,109 @@
                </property>
               </spacer>
              </item>
+             <item>
+              <widget class="fancy::TransparentButton" name="btn_mine">
+               <property name="minimumSize">
+                <size>
+                 <width>30</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>30</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="icon">
+                <iconset>
+                 <normaloff>:/icons/mine.png</normaloff>:/icons/mine.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </widget>
+             </item>
             </layout>
-           </widget>
-          </item>
-         </layout>
+           </item>
+           <item>
+            <widget class="QWidget" name="widget_3" native="true">
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <property name="leftMargin">
+               <number>10</number>
+              </property>
+              <property name="rightMargin">
+               <number>10</number>
+              </property>
+              <item>
+               <widget class="Line" name="line">
+                <property name="font">
+                 <font>
+                  <pointsize>9</pointsize>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout">
+             <item>
+              <widget class="fancy::TransparentButton" name="btn_contact">
+               <property name="text">
+                <string>联系人列表</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="fancy::TransparentButton" name="btn_radar">
+               <property name="text">
+                <string>用户雷达</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="fancy::TransparentButton" name="btn_file_trans">
+               <property name="text">
+                <string>文件传输</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="fancy::TransparentButton" name="btn_program_lock">
+               <property name="text">
+                <string>程序锁定</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="fancy::TransparentButton" name="btn_sys_config">
+               <property name="text">
+                <string>系统设置</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
         </item>
         <item>
-         <spacer name="verticalSpacer_2">
+         <spacer name="verticalSpacer">
           <property name="orientation">
            <enum>Qt::Orientation::Vertical</enum>
           </property>
@@ -571,135 +241,482 @@
           </property>
          </spacer>
         </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="contact_page">
-       <layout class="QVBoxLayout" name="verticalLayout_8">
         <item>
-         <widget class="QLabel" name="lab_mess_2">
-          <property name="font">
-           <font>
-            <pointsize>20</pointsize>
-            <bold>true</bold>
-           </font>
+         <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,0,2,0,2,0,1">
+          <property name="bottomMargin">
+           <number>5</number>
           </property>
-          <property name="layoutDirection">
-           <enum>Qt::LayoutDirection::LeftToRight</enum>
-          </property>
-          <property name="text">
-           <string>联系人列表</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignmentFlag::AlignCenter</set>
-          </property>
-         </widget>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="fancy::TransparentButton" name="btn_littleshow">
+            <property name="minimumSize">
+             <size>
+              <width>35</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>35</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>:/icons/mini.png</normaloff>:/icons/mini.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="fancy::TransparentButton" name="btn_home">
+            <property name="minimumSize">
+             <size>
+              <width>35</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>35</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>:/icons/home.png</normaloff>:/icons/home.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="fancy::TransparentButton" name="btn_logout">
+            <property name="minimumSize">
+             <size>
+              <width>35</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>35</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>:/icons/logout.png</normaloff>:/icons/logout.png</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="radar_page">
-       <layout class="QVBoxLayout" name="verticalLayout_9">
-        <item>
-         <widget class="QLabel" name="lab_mess_3">
-          <property name="font">
-           <font>
-            <pointsize>20</pointsize>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="layoutDirection">
-           <enum>Qt::LayoutDirection::LeftToRight</enum>
-          </property>
-          <property name="text">
-           <string>用户雷达</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignmentFlag::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="file_trans_page">
-       <layout class="QVBoxLayout" name="verticalLayout_10">
-        <item>
-         <widget class="QLabel" name="lab_mess_4">
-          <property name="font">
-           <font>
-            <pointsize>20</pointsize>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="layoutDirection">
-           <enum>Qt::LayoutDirection::LeftToRight</enum>
-          </property>
-          <property name="text">
-           <string>文件传输</string>
-          </property>
-          <property name="alignment">
-           <set>Qt::AlignmentFlag::AlignCenter</set>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="lock_page">
-       <widget class="QLabel" name="lab_mess_5">
-        <property name="geometry">
-         <rect>
-          <x>110</x>
-          <y>140</y>
-          <width>361</width>
-          <height>291</height>
-         </rect>
+     </item>
+     <item>
+      <widget class="QStackedWidget" name="content_widget">
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <widget class="fancy::MSWidget" name="home_page">
+        <layout class="QVBoxLayout" name="verticalLayout_7">
+         <item>
+          <spacer name="verticalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_11">
+           <item>
+            <widget class="QFrame" name="statFrame">
+             <layout class="QHBoxLayout" name="statLayout">
+              <item>
+               <widget class="QFrame" name="cur_send_card">
+                <layout class="QVBoxLayout" name="statCard1Layout">
+                 <item>
+                  <widget class="QLabel" name="stat1Title">
+                   <property name="styleSheet">
+                    <string>color: #6C757D;</string>
+                   </property>
+                   <property name="text">
+                    <string>今日发送文件</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="stat1Value">
+                   <property name="styleSheet">
+                    <string>font-size: 24px; font-weight: bold; color: #FF6B58;</string>
+                   </property>
+                   <property name="text">
+                    <string>3 个 (12MB)</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="cur_recv_card">
+                <layout class="QVBoxLayout" name="statCard2Layout">
+                 <item>
+                  <widget class="QLabel" name="stat2Title">
+                   <property name="styleSheet">
+                    <string>color: #6C757D;</string>
+                   </property>
+                   <property name="text">
+                    <string>今日接收文件</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="stat2Value">
+                   <property name="styleSheet">
+                    <string>font-size: 24px; font-weight: bold; color: #FF6B58;</string>
+                   </property>
+                   <property name="text">
+                    <string>2 个 (8MB)</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="online_card">
+                <layout class="QVBoxLayout" name="statCard3Layout">
+                 <item>
+                  <widget class="QLabel" name="stat3Title">
+                   <property name="styleSheet">
+                    <string>color: #6C757D;</string>
+                   </property>
+                   <property name="text">
+                    <string>当前在线设备数</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="stat3Value">
+                   <property name="styleSheet">
+                    <string>font-size: 24px; font-weight: bold; color: #FF6B58;</string>
+                   </property>
+                   <property name="text">
+                    <string>5 台</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="statFrame_2">
+             <layout class="QHBoxLayout" name="statLayout_3">
+              <item>
+               <widget class="QFrame" name="his_send_card">
+                <layout class="QVBoxLayout" name="statCard1Layout_3">
+                 <item>
+                  <widget class="QLabel" name="stat1Title_3">
+                   <property name="styleSheet">
+                    <string>color: #6C757D;</string>
+                   </property>
+                   <property name="text">
+                    <string>历史发送文件</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="stat1Value_3">
+                   <property name="styleSheet">
+                    <string>font-size: 24px; font-weight: bold; color: #FF6B58;</string>
+                   </property>
+                   <property name="text">
+                    <string>30 个 (3112MB)</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="his_recv_card">
+                <layout class="QVBoxLayout" name="statCard2Layout_3">
+                 <item>
+                  <widget class="QLabel" name="stat2Title_3">
+                   <property name="styleSheet">
+                    <string>color: #6C757D;</string>
+                   </property>
+                   <property name="text">
+                    <string>历史接收文件</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="stat2Value_3">
+                   <property name="styleSheet">
+                    <string>font-size: 24px; font-weight: bold; color: #FF6B58;</string>
+                   </property>
+                   <property name="text">
+                    <string>20个 (128MB)</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_6">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <spacer name="verticalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Orientation::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+       <widget class="fancy::MSWidget" name="contact_page">
+        <layout class="QVBoxLayout" name="verticalLayout_8">
+         <item>
+          <widget class="QLabel" name="lab_mess_2">
+           <property name="font">
+            <font>
+             <pointsize>20</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LayoutDirection::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string>联系人列表</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="1,4">
+           <item>
+            <widget class="QListWidget" name="list_users"/>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_5" stretch="4,1">
+             <item>
+              <widget class="QListWidget" name="msg_list"/>
+             </item>
+             <item>
+              <widget class="QTextEdit" name="msg_Edit"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+       <widget class="fancy::MSWidget" name="radar_page">
+        <layout class="QVBoxLayout" name="verticalLayout_9">
+         <item>
+          <widget class="QLabel" name="lab_mess_3">
+           <property name="font">
+            <font>
+             <pointsize>20</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LayoutDirection::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string>用户雷达</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="fancy::MSWidget" name="file_trans_page">
+        <layout class="QVBoxLayout" name="verticalLayout_10">
+         <item>
+          <widget class="QLabel" name="lab_mess_4">
+           <property name="font">
+            <font>
+             <pointsize>20</pointsize>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LayoutDirection::LeftToRight</enum>
+           </property>
+           <property name="text">
+            <string>文件传输</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="fancy::MSWidget" name="lock_page">
+        <property name="enabled">
+         <bool>true</bool>
         </property>
-        <property name="font">
-         <font>
-          <pointsize>20</pointsize>
-          <bold>true</bold>
-         </font>
+        <property name="autoFillBackground">
+         <bool>false</bool>
         </property>
-        <property name="layoutDirection">
-         <enum>Qt::LayoutDirection::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>程序锁定</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignmentFlag::AlignCenter</set>
-        </property>
+        <widget class="QLabel" name="lab_mess_5">
+         <property name="geometry">
+          <rect>
+           <x>100</x>
+           <y>120</y>
+           <width>361</width>
+           <height>291</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string>程序锁定</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </widget>
+       <widget class="fancy::MSWidget" name="sys_config_page">
+        <widget class="QLabel" name="lab_mess_6">
+         <property name="geometry">
+          <rect>
+           <x>100</x>
+           <y>130</y>
+           <width>361</width>
+           <height>291</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>20</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
+         </property>
+         <property name="text">
+          <string>系统设置</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
        </widget>
       </widget>
-      <widget class="QWidget" name="sys_config_page">
-       <widget class="QLabel" name="lab_mess_6">
-        <property name="geometry">
-         <rect>
-          <x>100</x>
-          <y>130</y>
-          <width>361</width>
-          <height>291</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>20</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="layoutDirection">
-         <enum>Qt::LayoutDirection::LeftToRight</enum>
-        </property>
-        <property name="text">
-         <string>系统设置</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignmentFlag::AlignCenter</set>
-        </property>
-       </widget>
-      </widget>
-     </widget>
-    </item>
-   </layout>
-  </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <customwidgets>
   <customwidget>
@@ -710,7 +727,7 @@
   <customwidget>
    <class>fancy::MSWidget</class>
    <extends>QWidget</extends>
-   <header>MSWidget.h</header>
+   <header location="global">MSWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

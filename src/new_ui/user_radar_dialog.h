@@ -38,7 +38,6 @@ private slots:
 
     // 双击用户项（快速添加）
     void on_listUsers_itemDoubleClicked(QListWidgetItem *item);
-
 private:
     Ui::UserRadarDialog *ui;
     UserDiscovery &userDiscovery;   // 用户发现服务（引用）
