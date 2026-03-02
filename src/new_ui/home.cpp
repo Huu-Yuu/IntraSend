@@ -3,6 +3,7 @@
 #include "ui_home.h"
 #include <QGraphicsDropShadowEffect>
 #include <QMenu>
+#include <QMessageBox>
 #include <QMouseEvent>
 
 Home::Home(QWidget *parent)
@@ -40,7 +41,7 @@ void Home::InitUi()
     // shadow->setBlurRadius(16);
     // ui->w_bg->setGraphicsEffect(shadow);
     ui->out_lay->setContentsMargins(22,22,22,22);
-    setLayout(ui->out_lay);
+    // setLayout(ui->out_lay);
     //Logo
     QSize size(30,30);
     QPixmap logo(":/pic/icons/logo.png");
@@ -108,6 +109,83 @@ void Home::onFileTransferCompleted(QUuid sessionId, bool success)
     }
 }
 
+void Home::onUserCardClicked(const QString &userId, UserState state)
+{
+    qDebug() << "用户卡片被点击：" << userId;
+
+    // 根据用户状态决定操作
+    switch (state) {
+    case UserState::Online:
+        // TODO: 打开聊天窗口
+        // openChatWindow(userId);
+        break;
+    case UserState::DoNotDisturb:
+        QMessageBox::information(this, tr("提示"), tr("该用户正在勿扰模式，无法发送消息"));
+        // 但仍可以发送文件（根据需求）
+        break;
+    default:
+        break;
+    }
+}
+
+void Home::showUserContextMenu(fancy::IntroductionCard *card, const QString &userId, const QPoint &pos)
+{
+    QMenu menu;
+
+    // 根据需求添加菜单项
+    menu.addAction(tr("发送消息"), this, [this, userId]() {
+        //TODO: 打开聊天窗口
+        // openChatWindow(userId);
+    });
+
+    menu.addAction(tr("发送文件"), this, [this, userId]() {
+        // TODO: 发送文件
+        // sendFileToUser(userId);
+    });
+
+    menu.addSeparator();
+
+    // 检查是否是联系人
+    ContactInfo contact = contactManager.getContact(QUuid(userId));
+    if (!contact.id.isNull()) {
+        menu.addAction(tr("设置备注"), this, [this, userId]() {
+            // TODO: 设置备注
+            // setUserRemark(userId);
+        });
+
+        if (contactManager.isInBlacklist(QUuid(userId))) {
+            menu.addAction(tr("移出黑名单"), this, [this, userId]() {
+                // TODO: 移出黑名单
+                // removeFromBlacklist(userId);
+            });
+        } else {
+            menu.addAction(tr("加入黑名单"), this, [this, userId]() {
+                // TODO: 加入黑名单
+                // addToBlacklist(userId);
+            });
+        }
+
+        if (contactManager.isInWhitelist(QUuid(userId))) {
+            menu.addAction(tr("移出白名单"), this, [this, userId]() {
+                // TODO: 移出白名单
+                // removeFromWhitelist(userId);
+            });
+        } else {
+            menu.addAction(tr("加入白名单"), this, [this, userId]() {
+                // TODO: 加入白名单
+                // addToWhitelist(userId);
+            });
+        }
+    } else {
+        menu.addAction(tr("添加为联系人"), this, [this, userId]() {
+            // TODO: 添加为联系人
+            // addAsContact(userId);
+        });
+    }
+
+    menu.exec(card->mapToGlobal(pos));
+}
+
 void Home::onFileTransferRequestReceived(const FileTransferRequest &request)
 {
     // 如果程序锁定，仅接收白名单文件
@@ -125,6 +203,35 @@ void Home::showFileTransferDialog(const FileTransferRequest &request)
 {
     FileTransferDialog dialog(request, fileTransferManager, this);
     dialog.exec();
+}
+
+void Home::clearUserCards()
+{
+    QList<fancy::IntroductionCard*> cards = ui->user_list_widget->findChildren<fancy::IntroductionCard*>();
+    for (fancy::IntroductionCard* card : cards) {
+        card->deleteLater();
+    }
+
+    QList<QLabel*> labels = ui->user_list_widget->findChildren<QLabel*>();
+    for (QLabel* label : labels) {
+        label->deleteLater();
+    }
+}
+
+void Home::updateUserCardInfo(const QUuid &userId)
+{
+    // 查找对应的卡片
+    QList<fancy::IntroductionCard*> cards = ui->user_list_widget->findChildren<fancy::IntroductionCard*>();
+    for (fancy::IntroductionCard* card : cards) {
+        if (card->property("userId").toString() == userId.toString()) {
+            // 更新卡片信息
+            ContactInfo contact = contactManager.getContact(userId);
+            if (!contact.id.isNull() && !contact.remark.isEmpty()) {
+                card->setMainText(contact.remark);
+            }
+            break;
+        }
+    }
 }
 
 void Home::onUnreadCountChanged(int count)
@@ -259,6 +366,7 @@ bool Home::eventFilter(QObject *obj, QEvent *evt)
     return QObject::eventFilter(obj, evt);
 }
 
+// 界面切换
 void Home::on_btn_contact_clicked()
 {
     ui->content_widget->setCurrentWidget(ui->contact_page);
@@ -292,6 +400,162 @@ void Home::on_btn_sys_config_clicked()
 void Home::on_btn_home_clicked()
 {
     ui->content_widget->setCurrentWidget(ui->home_page);
+}
+
+void Home::updateUserList()
+{
+    // 清除现有的卡片
+    QLayout* layout = ui->user_list_widget->layout();
+    if (!layout) {
+        // 如果是第一次调用，创建布局
+        QGridLayout* gridLayout = new QGridLayout(ui->user_list_widget);
+        layout = gridLayout;
+        ui->user_list_widget->setLayout(layout);
+    }
+    // 清除现有卡片
+    clearUserCards();
+    // 获取已发现的用户
+    QList<DiscoveredUser> users = userDiscovery->getDiscoveredUsers();
+
+    int row = 0;
+    int col = 0;
+    const int MAX_COLS = 3; // 每行最多显示3个卡片
+    int visibleUserCount = 0;
+
+    for (const DiscoveredUser &user : users) {
+        // 跳过隐身用户
+        if (user.state == UserState::Invisible) {
+            continue;
+        }
+
+        visibleUserCount++;
+
+        // 创建卡片控件
+        fancy::IntroductionCard* card = new fancy::IntroductionCard(ui->user_list_widget, ui->user_list_widget);
+        card->setBlurRadius(30);
+
+        // 根据状态设置不同的图标
+        fancy::BootstrapIcons iconType = fancy::BootstrapIcons::Person; // 默认图标
+        QString statusText;
+        QColor statusColor = Qt::gray;
+
+        switch (user.state) {
+        case UserState::Online:
+            iconType = fancy::BootstrapIcons::PersonCheck;
+            statusText = tr("在线");
+            statusColor = QColor(76, 175, 80); // 绿色
+            break;
+        case UserState::DoNotDisturb:
+            iconType = fancy::BootstrapIcons::PersonX;
+            statusText = tr("勿扰");
+            statusColor = QColor(244, 67, 54); // 红色
+            break;
+        default:
+            iconType = fancy::BootstrapIcons::Person;
+            statusText = tr("未知");
+            statusColor = Qt::gray;
+        }
+
+        card->setIcon(fancy::iconId(iconType));
+
+        // 设置卡片主文本（使用昵称）
+        QString displayText = user.nickname;
+        card->setMainText(displayText);
+
+        // 设置副文本（状态和IP）
+        QString subText = QString("%1 - %2").arg(statusText).arg(user.address.toString());
+
+        // 检查是否已添加为联系人
+        ContactInfo contact = contactManager.getContact(user.userId);
+        if (!contact.id.isNull()) {
+            // 如果有备注，优先显示备注
+            if (!contact.remark.isEmpty()) {
+                card->setMainText(contact.remark);
+                card->setToolTip(tr("昵称：%1\n备注：%2").arg(user.nickname).arg(contact.remark));
+            } else {
+                card->setToolTip(tr("昵称：%1").arg(user.nickname));
+            }
+
+            // 检查黑名单/白名单状态
+            if (contactManager.isInBlacklist(user.userId)) {
+                subText += " - " + tr("黑名单");
+                // card->setBackgroundColor(QColor(240, 240, 240)); // 浅灰色背景
+                card->setIcon(fancy::iconId(fancy::BootstrapIcons::PersonSlash));
+            } else if (contactManager.isInWhitelist(user.userId)) {
+                subText += " - " + tr("白名单");
+                // card->setBorderColor(Qt::blue);
+            }
+        } else {
+            card->setToolTip(tr("昵称：%1").arg(user.nickname));
+        }
+
+        card->setSubText(subText);
+
+        // 设置状态颜色指示
+        QPixmap statusPixmap(12, 12);
+        statusPixmap.fill(statusColor);
+        // 如果 IntroductionCard 支持设置额外的图标或状态指示，可以在这里设置
+
+        // 存储用户ID到卡片的自定义属性中
+        card->setProperty("userId", user.userId.toString());
+        card->setProperty("userState", static_cast<int>(user.state));
+        card->setProperty("userAddress", user.address.toString());
+        card->setProperty("userNickname", user.nickname);
+
+        // 连接卡片的点击信号
+        connect(card, &fancy::IntroductionCard::clicked, this, [this, card]() {
+            QString userId = card->property("userId").toString();
+            UserState state = static_cast<UserState>(card->property("userState").toInt());
+            onUserCardClicked(userId, state);
+        });
+
+        // 如果需要右键菜单
+        card->setContextMenuPolicy(Qt::CustomContextMenu);
+        connect(card, &fancy::IntroductionCard::customContextMenuRequested, this, [this, card](const QPoint &pos) {
+            QString userId = card->property("userId").toString();
+            showUserContextMenu(card, userId, pos);
+        });
+
+        // 添加到布局
+        QGridLayout* gridLayout = qobject_cast<QGridLayout*>(layout);
+        if (gridLayout) {
+            gridLayout->addWidget(card, row, col);
+
+            // 更新行列位置
+            col++;
+            if (col >= MAX_COLS) {
+                col = 0;
+                row++;
+            }
+        } else {
+            // 如果是其他布局，直接添加
+            layout->addWidget(card);
+        }
+    }
+
+    // 如果没有用户，显示提示
+    if (visibleUserCount == 0) {
+        QLabel* emptyLabel = new QLabel(tr("没有发现其他在线用户"), ui->user_list_widget);
+        emptyLabel->setAlignment(Qt::AlignCenter);
+        emptyLabel->setStyleSheet("QLabel { color: #999; font-size: 14pt; padding: 50px; }");
+        layout->addWidget(emptyLabel);
+    }
+
+    // 添加弹簧填充剩余空间（如果是网格布局）
+    if (QGridLayout* gridLayout = qobject_cast<QGridLayout*>(layout)) {
+        // 在最后一行添加弹簧
+        gridLayout->setRowStretch(row + 1, 1);
+        // 设置列拉伸
+        for (int i = 0; i < MAX_COLS; i++) {
+            gridLayout->setColumnStretch(i, 1);
+        }
+    } else {
+        // 添加垂直弹簧
+        qobject_cast<QVBoxLayout*>(layout)->addStretch();
+    }
+
+    // 更新状态信息
+    qDebug() << QString("已发现 %1 个在线用户").arg(visibleUserCount);
 }
 
 

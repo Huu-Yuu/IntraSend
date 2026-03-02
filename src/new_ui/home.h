@@ -3,6 +3,7 @@
 
 #include <QSystemTrayIcon>
 #include <QWidget>
+#include "IntroductionCard.h"
 #include "core/data/password_manager.h"
 #include "core/filetransfer/file_transfer_manager.h"
 #include "core/message/message_manager.h"
@@ -25,28 +26,34 @@ public:
 
 private slots:
     void on_btn_littleshow_clicked();
-
     void on_btn_logout_clicked();
 
+    // 界面切换
     void on_btn_contact_clicked();
-
     void on_btn_radar_clicked();
-
     void on_btn_file_trans_clicked();
-
     void on_btn_program_lock_clicked();
-
     void on_btn_sys_config_clicked();
-
     void on_btn_home_clicked();
-
     void on_content_widget_currentChanged(int arg1);
 
+    // 更新用户列表
+    void updateUserList();
+
+    // 消息相关
     void onMessageReceived(const LocalNetworkApp::Message &message);
     void onUnreadCountChanged(int count);
+
+    // 文件传输相关
     void onFileTransferRequestReceived(const LocalNetworkApp::FileTransferRequest &request);
     void onFileTransferProgress(QUuid sessionId, qint64 bytesTransferred, qint64 totalBytes);
     void onFileTransferCompleted(QUuid sessionId, bool success);
+
+    // 用户雷达相关
+    void onUserCardClicked(const QString &userId, LocalNetworkApp::UserState state);
+    void showUserContextMenu(fancy::IntroductionCard *card, const QString &userId, const QPoint &pos);
+
+
 protected:
     bool eventFilter(QObject *obj, QEvent *evt) override;
 
@@ -75,6 +82,8 @@ private:
     void onTrayIconActivated(QSystemTrayIcon::ActivationReason reason); // 托盘激活事件
     void updateContactList();   // 更新联系人列表
     void showFileTransferDialog(const FileTransferRequest &request);    // 显示文件传输对话框
+    void clearUserCards();  // 清理用户卡片
+    void updateUserCardInfo(const QUuid &userId); // 更新用户卡片
 };
 
 #endif // HOME_H

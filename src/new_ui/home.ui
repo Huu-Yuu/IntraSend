@@ -567,7 +567,7 @@
         </layout>
        </widget>
        <widget class="fancy::MSWidget" name="contact_page">
-        <layout class="QVBoxLayout" name="verticalLayout_8">
+        <layout class="QVBoxLayout" name="verticalLayout_8" stretch="1,10">
          <item>
           <widget class="QLabel" name="lab_mess_2">
            <property name="font">
@@ -607,7 +607,7 @@
         </layout>
        </widget>
        <widget class="fancy::MSWidget" name="radar_page">
-        <layout class="QVBoxLayout" name="verticalLayout_9">
+        <layout class="QVBoxLayout" name="verticalLayout_9" stretch="1,10">
          <item>
           <widget class="QLabel" name="lab_mess_3">
            <property name="font">
@@ -626,6 +626,9 @@
             <set>Qt::AlignmentFlag::AlignCenter</set>
            </property>
           </widget>
+         </item>
+         <item>
+          <widget class="fancy::MSWidget" name="user_list_widget" native="true"/>
          </item>
         </layout>
        </widget>
